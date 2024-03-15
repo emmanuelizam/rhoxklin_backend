@@ -15,6 +15,7 @@ class BaseController {
       this.validateCreateRequestBody &&
       this.validateCreateRequestBody(req, res);
     // save modelEntry to the database
+    console.log(req.body);
     isValid &&
       this.model
         .build(req.body)
@@ -23,6 +24,7 @@ class BaseController {
           res.json(data);
         })
         .catch((err) => {
+          console.log(err.message);
           res.status(500).send({
             message:
               err.message ||

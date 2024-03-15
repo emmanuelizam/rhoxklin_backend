@@ -97,8 +97,14 @@ module.exports = (
   }
   */
 
-  Staff.belongsToMany(Customer, { through: StaffCustomerMessage });
-  Customer.belongsToMany(Staff, { through: StaffCustomerMessage });
+  Staff.belongsToMany(Customer, {
+    through: StaffCustomerMessage,
+    unique: false,
+  });
+  Customer.belongsToMany(Staff, {
+    through: StaffCustomerMessage,
+    unique: false,
+  });
   StaffCustomerMessage.belongsTo(Staff);
   StaffCustomerMessage.belongsTo(Customer);
   Staff.hasMany(StaffCustomerMessage);

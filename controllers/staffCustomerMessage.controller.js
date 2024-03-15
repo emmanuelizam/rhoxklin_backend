@@ -32,7 +32,7 @@ const validateCreateRequestBody = (req, res) => {
 const filterFindAll = (req, res) => {
   const name = req.body.name;
   const attributes = [
-    //"content",
+    // "content",
     // "dateSend",
     // "createdAt",
     // [
@@ -49,7 +49,7 @@ const filterFindAll = (req, res) => {
     // ],
   ]; // list of database table attributes
   const include = [
-    //{ model: Staff, attributes: ["id"] }
+    //{ model: Staff, attributes: ["name"] }
   ]; // list of tables to be used for join
   const condition = name ? { name: { [Op.like]: `%${name}%` } } : null; // condition for where
   return [attributes, include, condition];
