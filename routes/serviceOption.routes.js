@@ -7,13 +7,15 @@ const {
   remove,
 } = require("../controllers/serviceOption.controller");
 
-module.exports = (Router) => {
+module.exports = (Router, ProtectedRouter) => {
   Router.get("/serviceoption", findAll);
   Router.get("/serviceoption/:id", findOne);
-  Router.post("/serviceoption", create);
-  Router.delete("/serviceoption/:id", remove);
-  Router.delete("/serviceoption", removeAll);
-  Router.put("/serviceoption", update);
+  ProtectedRouter.get("/serviceoption", findAll);
+  ProtectedRouter.get("/serviceoption/:id", findOne);
+  ProtectedRouter.post("/serviceoption", create);
+  ProtectedRouter.delete("/serviceoption/:id", remove);
+  ProtectedRouter.delete("/serviceoption", removeAll);
+  ProtectedRouter.put("/serviceoption", update);
 
-  return Router;
+  return [Router, ProtectedRouter];
 };

@@ -101,10 +101,12 @@ app.get("/api/logout", (req, res) => {
 
 // configure routes
 
-const TestimonialRoutes = require("./routes/testimonial.routes.js")(
-  express.Router({ caseSensitive: false, strict: true })
-);
-const StaffRoutes = require("./routes/staff.routes.js")(
+const [TestimonialRoutes, ProtectedTestimonialRoutes] =
+  require("./routes/testimonial.routes.js")(
+    express.Router({ caseSensitive: false, strict: true }),
+    express.Router({ caseSensitive: false, strict: true })
+  );
+const ProtectedStaffRoutes = require("./routes/staff.routes.js")(
   express.Router({ caseSensitive: false, strict: true })
 );
 const [StaffCustomerMessageRoutes, ProtectedStaffCustomerMessageRoutes] =
@@ -122,29 +124,35 @@ const [ProductRoutes, ProtectedProductRoutes] =
     express.Router({ caseSensitive: false, strict: true }),
     express.Router({ caseSensitive: false, strict: true })
   );
-const CustomerProductOrderRoutes =
+const ProtectedCustomerProductOrderRoutes =
   require("./routes/customerProductOrder.routes.js")(
     express.Router({ caseSensitive: false, strict: true })
   );
-const CustomerServiceOrderRoutes =
+const ProtectedCustomerServiceOrderRoutes =
   require("./routes/customerServiceOrder.routes.js")(
     express.Router({ caseSensitive: false, strict: true })
   );
-const ServiceOptionRoutes = require("./routes/serviceOption.routes.js")(
+const [ServiceOptionRoutes, ProtectedServiceOptionRoutes] =
+  require("./routes/serviceOption.routes.js")(
+    express.Router({ caseSensitive: false, strict: true }),
+    express.Router({ caseSensitive: false, strict: true })
+  );
+const ProtectedManagerRoutes = require("./routes/manager.routes.js")(
   express.Router({ caseSensitive: false, strict: true })
 );
-const ManagerRoutes = require("./routes/manager.routes.js")(
+const ProtectedCustomerRoutes = require("./routes/customer.routes.js")(
   express.Router({ caseSensitive: false, strict: true })
 );
-const CustomerRoutes = require("./routes/customer.routes.js")(
-  express.Router({ caseSensitive: false, strict: true })
-);
-const ContactUsRoutes = require("./routes/contactUs.routes.js")(
-  express.Router({ caseSensitive: false, strict: true })
-);
-const CartItemRoutes = require("./routes/cartItem.routes.js")(
-  express.Router({ caseSensitive: false, strict: true })
-);
+const [ContactUsRoutes, ProtectedContactUsRoutes] =
+  require("./routes/contactUs.routes.js")(
+    express.Router({ caseSensitive: false, strict: true }),
+    express.Router({ caseSensitive: false, strict: true })
+  );
+const [CartItemRoutes, ProtectedCartItemRoutes] =
+  require("./routes/cartItem.routes.js")(
+    express.Router({ caseSensitive: false, strict: true }),
+    express.Router({ caseSensitive: false, strict: true })
+  );
 
 // disable trailing slash redirect. It didn't work though
 app.set("strict routing", true);
@@ -155,19 +163,23 @@ app.use("/api/", ServiceRoutes);
 app.use("/api/", CartItemRoutes);
 app.use("/api/", StaffCustomerMessageRoutes);
 app.use("/api/", TestimonialRoutes);
+app.use("/api/", ServiceOptionRoutes);
+app.use("/api/", ContactUsRoutes);
 
 // protected routes that require jwt authentication
 app.use(passport.authenticate("jwt", { session: false }));
 app.use("/protected-api/", ProtectedStaffCustomerMessageRoutes);
 app.use("/protected-api/", ProtectedProductRoutes);
 app.use("/protected-api/", ProtectedServiceRoutes);
-app.use("/protected-api/", StaffRoutes);
-app.use("/protected-api/", CustomerServiceOrderRoutes);
-app.use("/protected-api/", CustomerRoutes);
-app.use("/protected-api/", CustomerProductOrderRoutes);
-app.use("/protected-api/", ServiceOptionRoutes);
-app.use("/protected-api/", ManagerRoutes);
-app.use("/protected-api/", ContactUsRoutes);
+app.use("/protected-api/", ProtectedStaffRoutes);
+app.use("/protected-api/", ProtectedCustomerServiceOrderRoutes);
+app.use("/protected-api/", ProtectedCustomerRoutes);
+app.use("/protected-api/", ProtectedCustomerProductOrderRoutes);
+app.use("/protected-api/", ProtectedServiceOptionRoutes);
+app.use("/protected-api/", ProtectedManagerRoutes);
+app.use("/protected-api/", ProtectedContactUsRoutes);
+app.use("/protected-api/", ProtectedTestimonialRoutes);
+app.use("/protected-api/", ProtectedCartItemRoutes);
 
 app.use("/api/home", (req, res) => {
   res.json({ message: "welcome to rhoxklin" });

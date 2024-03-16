@@ -97,13 +97,20 @@ module.exports = (
   }
   */
 
-  Staff.belongsToMany(Customer, {
-    through: StaffCustomerMessage,
-    unique: false,
-  });
   Customer.belongsToMany(Staff, {
-    through: StaffCustomerMessage,
-    unique: false,
+    through: {
+      model: StaffCustomerMessage, // Specify the through model
+      unique: false, // Disable uniqueness constraint on the model
+    },
+    foreignKey: "CustomerId", // Specify the foreign key for Customer
+  });
+
+  Staff.belongsToMany(Customer, {
+    through: {
+      model: StaffCustomerMessage, // Same through model
+      unique: false, // Disable uniqueness constraint again
+    },
+    foreignKey: "StaffId", // Specify the foreign key for Staff
   });
   StaffCustomerMessage.belongsTo(Staff);
   StaffCustomerMessage.belongsTo(Customer);

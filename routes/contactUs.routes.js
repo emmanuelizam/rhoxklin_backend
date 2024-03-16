@@ -7,13 +7,15 @@ const {
   remove,
 } = require("../controllers/contactUs.controller");
 
-module.exports = (Router) => {
+module.exports = (Router, ProtectedRouter) => {
   Router.get("/contactus", findAll);
   Router.get("/contactus/:id", findOne);
-  Router.post("/contactus", create);
-  Router.delete("/contactus/:id", remove);
-  Router.delete("/contactus", removeAll);
-  Router.put("/contactus", update);
+  ProtectedRouter.get("/contactus", findAll);
+  ProtectedRouter.get("/contactus/:id", findOne);
+  ProtectedRouter.post("/contactus", create);
+  ProtectedRouter.delete("/contactus/:id", remove);
+  ProtectedRouter.delete("/contactus", removeAll);
+  ProtectedRouter.put("/contactus", update);
 
-  return Router;
+  return [Router, ProtectedRouter];
 };

@@ -7,13 +7,13 @@ const {
   remove,
 } = require("../controllers/customerServiceOrder.controller");
 
-module.exports = (Router) => {
-  Router.get("/customerserviceorder", findAll);
-  Router.get("/customerserviceorder/:id", findOne);
-  Router.post("/customerserviceorder", create);
-  Router.delete("/customerserviceorder/:id", remove);
-  Router.delete("/customerserviceorder", removeAll);
-  Router.put("/customerserviceorder", update);
+module.exports = (ProtectedRouter) => {
+  ProtectedRouter.get("/customerserviceorder", findAll);
+  ProtectedRouter.get("/customerserviceorder/:id", findOne);
+  ProtectedRouter.post("/customerserviceorder", create);
+  ProtectedRouter.delete("/customerserviceorder/:id", remove);
+  ProtectedRouter.delete("/customerserviceorder", removeAll);
+  ProtectedRouter.put("/customerserviceorder", update);
 
-  return Router;
+  return ProtectedRouter;
 };

@@ -70,7 +70,7 @@ const StaffCustomerMessage = require("./staffCustomerMessage.model.js")(
 // sequelize
 //   .sync({
 //     alter: true,
-//     // force: true,
+//     //force: true,
 //     //logging: true,
 //     match: /.*development$/,
 //   })
