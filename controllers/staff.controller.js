@@ -30,6 +30,7 @@ const validateCreateRequestBody = (req, res) => {
 const filterFindAll = (req, res) => {
   const name = req.body.name;
   const attributes = [
+    "id",
     "name",
     "birthday",
     "sex",

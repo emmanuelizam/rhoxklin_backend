@@ -90,12 +90,16 @@ class BaseController {
         .then((num) => {
           if (num === 1) {
             res.send({
+              id: id,
               message: `successfully updated ${this.model.name} with id=${id}`,
             });
           } else {
-            res.send({
-              message: `cannot update ${this.model.name} with id=${id} maybe because it was not found or req.body was empty`,
-            });
+            res
+              .status(404)
+              .send({
+                id: id,
+                message: `cannot update ${this.model.name} with id=${id} maybe because it was not found or req.body was empty`,
+              });
           }
         })
         .catch((err) => {
@@ -120,12 +124,16 @@ class BaseController {
         .then((num) => {
           if (num === 1) {
             res.send({
+              id: id,
               message: `successfully deleted ${this.model.name} with id=${id}`,
             });
           } else {
-            res.send({
-              message: `could not delete ${this.model.name} with id=${id} probably because it was not found`,
-            });
+            res
+              .status(404)
+              .send({
+                id: id,
+                message: `could not delete ${this.model.name} with id=${id} probably because it was not found`,
+              });
           }
         })
         .catch((err) => {

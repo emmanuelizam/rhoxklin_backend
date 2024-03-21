@@ -30,9 +30,12 @@ const validateCreateRequestBody = (req, res) => {
 const filterFindAll = (req, res) => {
   const name = req.body.name;
   const attributes = [
-    //"content",
-    // "dateSend",
-    // "createdAt",
+    "id",
+    "name",
+    "birthday",
+    "sex",
+    "phoneNumber",
+    "email",
     // [
     //   Sequelize.literal(
     //     `(select name as staff from Staffs s where s.id = StaffId)`

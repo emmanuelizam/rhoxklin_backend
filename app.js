@@ -165,6 +165,7 @@ app.use("/api/", StaffCustomerMessageRoutes);
 app.use("/api/", TestimonialRoutes);
 app.use("/api/", ServiceOptionRoutes);
 app.use("/api/", ContactUsRoutes);
+
 //app.use("/api/", ProtectedStaffRoutes); used to create the first staff
 
 // protected routes that require jwt authentication
