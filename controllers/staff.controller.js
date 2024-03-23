@@ -28,7 +28,7 @@ const validateCreateRequestBody = (req, res) => {
 };
 
 const filterFindAll = (req, res) => {
-  const name = req.body.name;
+  const name = req.query.name;
   const attributes = [
     "id",
     "name",
@@ -37,6 +37,7 @@ const filterFindAll = (req, res) => {
     "role",
     "phoneNumber",
     "email",
+    "password",
     "createdAt",
     "updatedAt",
     // [

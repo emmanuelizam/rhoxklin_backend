@@ -91,13 +91,18 @@ class BaseController {
         .then((num) => {
           console.log(num);
           if (num[0] === 1) {
-            res.send({
-              id: id,
-              message: `successfully updated ${this.model.name} with id=${id}`,
-            });
+            this.model
+              .findByPk(id)
+              .then((data) => res.send(data))
+              .catch((err) => {
+                res.status(500).send({
+                  message:
+                    err.message ||
+                    `error occured while trying to retrieve ${this.model.name} with id=${id}`,
+                });
+              });
           } else {
             res.status(404).send({
-              id: id,
               message: `cannot update ${this.model.name} with id=${id} maybe because it was not found or req.body was empty`,
             });
           }
