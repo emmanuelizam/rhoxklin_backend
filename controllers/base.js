@@ -84,22 +84,22 @@ class BaseController {
   // update a modelEntry using it's id
   update = (req, res) => {
     if (req.isAuthenticated) {
-      const id = req.params.id;
+      const id = req.body.id;
+      console.log(id);
       this.model
         .update(req.body, { where: { id: id } })
         .then((num) => {
-          if (num === 1) {
+          console.log(num);
+          if (num[0] === 1) {
             res.send({
               id: id,
               message: `successfully updated ${this.model.name} with id=${id}`,
             });
           } else {
-            res
-              .status(404)
-              .send({
-                id: id,
-                message: `cannot update ${this.model.name} with id=${id} maybe because it was not found or req.body was empty`,
-              });
+            res.status(404).send({
+              id: id,
+              message: `cannot update ${this.model.name} with id=${id} maybe because it was not found or req.body was empty`,
+            });
           }
         })
         .catch((err) => {
@@ -128,12 +128,10 @@ class BaseController {
               message: `successfully deleted ${this.model.name} with id=${id}`,
             });
           } else {
-            res
-              .status(404)
-              .send({
-                id: id,
-                message: `could not delete ${this.model.name} with id=${id} probably because it was not found`,
-              });
+            res.status(404).send({
+              id: id,
+              message: `could not delete ${this.model.name} with id=${id} probably because it was not found`,
+            });
           }
         })
         .catch((err) => {

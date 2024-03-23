@@ -36,6 +36,8 @@ const filterFindAll = (req, res) => {
     "sex",
     "phoneNumber",
     "email",
+    "createdAt",
+    "updatedAt",
     // [
     //   Sequelize.literal(
     //     `(select name as staff from Staffs s where s.id = StaffId)`
