@@ -28,10 +28,10 @@ const cors_options = {
 app.use(logger("combined"));
 
 // configure to parse request of content-type application/json
-app.use(express.json());
+app.use(express.json({ limit: "2mb" }));
 
 // configure to parse request of content-type application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false, limit: "2mb" }));
 
 // configure cors
 app.use(cors(cors_options));
