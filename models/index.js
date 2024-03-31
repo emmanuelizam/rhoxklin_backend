@@ -67,19 +67,19 @@ const StaffCustomerMessage = require("./staffCustomerMessage.model.js")(
   StaffCustomerFirstMessage
 );
 
-// sequelize
-//   .sync({
-//     alter: true,
-//     //force: true,
-//     //logging: true,
-//     match: /.*development$/,
-//   })
-//   .then((value) => {
-//     console.log("dababase was synced successfully!");
-//   })
-//   .catch((error) => {
-//     console.log("failed to sync db: " + error.message);
-//   });
+sequelize
+  .sync({
+    alter: true,
+    //force: true,
+    //logging: true,
+    match: /.*development$/,
+  })
+  .then((value) => {
+    console.log("dababase was synced successfully!");
+  })
+  .catch((error) => {
+    console.log("failed to sync db: " + error.message);
+  });
 
 const db = {
   ContactUs,

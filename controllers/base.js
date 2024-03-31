@@ -15,7 +15,6 @@ class BaseController {
       this.validateCreateRequestBody &&
       this.validateCreateRequestBody(req, res);
     // save modelEntry to the database
-    console.log(req.body.picture.length);
     isValid &&
       this.model
         .build(req.body)

@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       unique: true,
     },
     content: {
-      type: DataTypes.TEXT("tiny"),
+      type: DataTypes.TEXT("medium"),
       allowNull: false,
     },
     picture: {

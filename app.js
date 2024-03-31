@@ -166,7 +166,7 @@ app.use("/api/", TestimonialRoutes);
 app.use("/api/", ServiceOptionRoutes);
 app.use("/api/", ContactUsRoutes);
 
-//app.use("/api/", ProtectedStaffRoutes); used to create the first staff
+app.use("/protected-api/", ProtectedStaffRoutes); //used to create the first staff
 
 // protected routes that require jwt authentication
 app.use(passport.authenticate("jwt", { session: false }));
