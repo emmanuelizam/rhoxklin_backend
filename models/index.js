@@ -1,14 +1,14 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const { database_rhoxklin } = require("../config/db.config.js");
+const { rhoxklin_database } = require("../config/db.config.js");
 
 const sequelize = new Sequelize(
-  database_rhoxklin.database,
-  database_rhoxklin.username,
-  database_rhoxklin.password,
+  rhoxklin_database.database,
+  rhoxklin_database.username,
+  rhoxklin_database.password,
   {
-    host: database_rhoxklin.host,
-    dialect: database_rhoxklin.dialect,
-    pool: database_rhoxklin.pool,
+    host: rhoxklin_database.host,
+    dialect: rhoxklin_database.dialect,
+    pool: rhoxklin_database.pool,
   }
 );
 
@@ -72,7 +72,7 @@ sequelize
     alter: true,
     //force: true,
     //logging: true,
-    match: /.*rhoxklin$/,
+    match: /^rhoxklin.*/,
   })
   .then((value) => {
     console.log("dababase was synced successfully!");

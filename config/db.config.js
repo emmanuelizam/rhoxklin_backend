@@ -1,7 +1,8 @@
 // ensure that you modify MySQLConnectionOptions anytime you are changing database
+
 const database_development = {
-  username: "user1",
-  password: null,
+  username: "rhoxklin_admin",
+  password: process.env.PASSWORD,
   database: "database_development",
   host: "127.0.0.1",
   dialect: "mysql",
@@ -12,10 +13,10 @@ const database_development = {
     idle: 10000,
   },
 };
-const database_rhoxklin = {
-  username: "user1",
-  password: null,
-  database: "database_rhoxklin",
+const rhoxklin_database = {
+  username: "rhoxklin_admin",
+  password: process.env.PASSWORD,
+  database: "rhoxklin_database",
   host: "127.0.0.1",
   dialect: "mysql",
   pool: {
@@ -53,9 +54,9 @@ const database_production = {
 };
 
 const MySQLConnectionOptions = {
-  user: "user1",
-  password: null,
-  database: "database_rhoxklin",
+  user: "rhoxklin_admin",
+  password: process.env.PASSWORD,
+  database: "rhoxklin_database",
   host: "127.0.0.1",
   port: 3306,
 };
@@ -91,5 +92,5 @@ module.exports = {
   database_production,
   MySQLConnectionOptions,
   MySQLSessionStoreOptions,
-  database_rhoxklin,
+  rhoxklin_database,
 };
