@@ -1,0 +1,279 @@
+{
+  "version": 6,
+  "entities": [
+    {
+      "entity": {
+        "type": "Project",
+        "id": "aa855087-3c05-49b2-a264-acd95e1c33d9",
+        "name": "rhoxklin"
+      },
+      "children": [
+        {
+          "entity": {
+            "type": "Service",
+            "id": "a8a72a33-040d-44d2-b662-bb186e77bc2b",
+            "name": "Staffs"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"username\": \"HQOQROGRGDCFCYHWLNCG@domain.com\",\n  \"password\": \"Uz4>Qp9!St5]F1-Fu3%H\"\n}\n"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:5000",
+                  "path": "/api/staff/42"
+                },
+                "id": "6e0382f1-d6f4-4dcf-89a3-b2e9120ae7f5",
+                "name": "get staffs",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQyLCJlbWFpbCI6IkhRT1FST0dSR0RDRkNZSFdMTkNHQGRvbWFpbi5jb20iLCJpYXQiOjE3MDU3NDgzODMsImV4cCI6MTcwNTgzNDc4M30.FkOJdpRyx_Wi4uBZCd_yLlpxw2ijFXwuGOwnYrCrjgz89TtAKx2MZXf2rSeJcnrVfGZCCA95UjzhYPNfERjA_uxTHAZFZCTlo8ySbhVDXxsE0-a4bH1c56AR4hdxPORTqTOjmiqE-7DHcZ-EMOcXXziKpMkVIiHBPkFDtO_C_XHuaOnjriBo4Y-E__rXhT6TPQqgwFWPaDW2w2FXl_EyMmv0oAgtCv43EddAGaZfWypolKJAaOOLN1qHg1yX3fNoeaa_Jp32G6vLPUCVoz_0ac_3AbVWLK5XOxvccCqkqa4VFSnLTJbujkEksBUcmUS8Dx4gTn3_56uaWj_IPUxvG4Xp7HpXZHWwd0INdv2BoMvEjsSZP1N2ix4CqFHaTXe9BL_y2Ohf_18JImGvRzHjG8jIWBpPX-X8NepuEs0eUHGy2so7mrGT3OuQ6BY2IKQtqU_I66pw7oGZ5fVydnyOZKiZSAsqhZIs0hFr99rAOHV9UnUnPfy_I5li6jvcU03I5rV4JhnSD7QpOdUPGyAs_Y9O0bF14G-Y3AwZz2hFWVYGc4MkrpDQBZWuDcufGoSMse8sX046D_aNke23VvjHUVOnu9aet1fSNARMKFFRd38lFpSNUz1vYgeWooInNaggYmcxF6mXDG8bkc3uVq-EW1bgw6-hTE3KofBlFPwQrpY"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"name\":\"${randomString(\"10\", true, true, true)}\",\n    \"birthday\": \"2002-10-13\",\n    \"sex\": \"Female\",\n    \"role\": \"${randomString(\"10\", true, true, true)}\",\n    \"phoneNumber\": \"${randomString(\"10\", false, false, true)}\",\n    \"email\": \"${randomString(\"10\", true, true, false).concat(\"@domain.com\")}\",\n    \"password\":\"${randomString(\"20\", true, true, true).concat(\".=?\")}\"\n}\n"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:5000",
+                  "path": "/api/staff"
+                },
+                "id": "a7ec17e3-4022-4c55-9964-a6716b570f3e",
+                "name": "post staffs",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQyLCJlbWFpbCI6IkhRT1FST0dSR0RDRkNZSFdMTkNHQGRvbWFpbi5jb20iLCJpYXQiOjE3MDU3NDgzODMsImV4cCI6MTcwNTgzNDc4M30.FkOJdpRyx_Wi4uBZCd_yLlpxw2ijFXwuGOwnYrCrjgz89TtAKx2MZXf2rSeJcnrVfGZCCA95UjzhYPNfERjA_uxTHAZFZCTlo8ySbhVDXxsE0-a4bH1c56AR4hdxPORTqTOjmiqE-7DHcZ-EMOcXXziKpMkVIiHBPkFDtO_C_XHuaOnjriBo4Y-E__rXhT6TPQqgwFWPaDW2w2FXl_EyMmv0oAgtCv43EddAGaZfWypolKJAaOOLN1qHg1yX3fNoeaa_Jp32G6vLPUCVoz_0ac_3AbVWLK5XOxvccCqkqa4VFSnLTJbujkEksBUcmUS8Dx4gTn3_56uaWj_IPUxvG4Xp7HpXZHWwd0INdv2BoMvEjsSZP1N2ix4CqFHaTXe9BL_y2Ohf_18JImGvRzHjG8jIWBpPX-X8NepuEs0eUHGy2so7mrGT3OuQ6BY2IKQtqU_I66pw7oGZ5fVydnyOZKiZSAsqhZIs0hFr99rAOHV9UnUnPfy_I5li6jvcU03I5rV4JhnSD7QpOdUPGyAs_Y9O0bF14G-Y3AwZz2hFWVYGc4MkrpDQBZWuDcufGoSMse8sX046D_aNke23VvjHUVOnu9aet1fSNARMKFFRd38lFpSNUz1vYgeWooInNaggYmcxF6mXDG8bkc3uVq-EW1bgw6-hTE3KofBlFPwQrpY"
+                  },
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "c7fb7a4f-d15c-4536-824c-61c23f11c337",
+            "name": "customers"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"username\": \"HQOQROGRGDCFCYHWLNCG@domain.com\",\n  \"password\": \"Uz4>Qp9!St5]F1-Fu3%H\"\n}\n"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:5000",
+                  "path": "/api/customer/42"
+                },
+                "id": "52930d87-c94b-42d3-a03a-f433d0ddc760",
+                "name": "get customers",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQyLCJlbWFpbCI6IkhRT1FST0dSR0RDRkNZSFdMTkNHQGRvbWFpbi5jb20iLCJpYXQiOjE3MDU3NDgzODMsImV4cCI6MTcwNTgzNDc4M30.FkOJdpRyx_Wi4uBZCd_yLlpxw2ijFXwuGOwnYrCrjgz89TtAKx2MZXf2rSeJcnrVfGZCCA95UjzhYPNfERjA_uxTHAZFZCTlo8ySbhVDXxsE0-a4bH1c56AR4hdxPORTqTOjmiqE-7DHcZ-EMOcXXziKpMkVIiHBPkFDtO_C_XHuaOnjriBo4Y-E__rXhT6TPQqgwFWPaDW2w2FXl_EyMmv0oAgtCv43EddAGaZfWypolKJAaOOLN1qHg1yX3fNoeaa_Jp32G6vLPUCVoz_0ac_3AbVWLK5XOxvccCqkqa4VFSnLTJbujkEksBUcmUS8Dx4gTn3_56uaWj_IPUxvG4Xp7HpXZHWwd0INdv2BoMvEjsSZP1N2ix4CqFHaTXe9BL_y2Ohf_18JImGvRzHjG8jIWBpPX-X8NepuEs0eUHGy2so7mrGT3OuQ6BY2IKQtqU_I66pw7oGZ5fVydnyOZKiZSAsqhZIs0hFr99rAOHV9UnUnPfy_I5li6jvcU03I5rV4JhnSD7QpOdUPGyAs_Y9O0bF14G-Y3AwZz2hFWVYGc4MkrpDQBZWuDcufGoSMse8sX046D_aNke23VvjHUVOnu9aet1fSNARMKFFRd38lFpSNUz1vYgeWooInNaggYmcxF6mXDG8bkc3uVq-EW1bgw6-hTE3KofBlFPwQrpY"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "b3842b2c-7157-46f8-a508-60d6eb26083f",
+            "name": "login"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "requestBody": true,
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+                  "name": "POST"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"username\": \"HQOQROGRGDCFCYHWLNCG@domain.com\",\n  \"password\": \"Uz4>Qp9!St5]F1-Fu3%H\"\n}\n"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:5000",
+                  "path": "/api/login"
+                },
+                "id": "28dd9ed3-e5e2-412b-a808-42b2d69cf918",
+                "name": "POST http://localhost:5000/api/login",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Content-Type",
+                    "value": "application/json"
+                  }
+                ]
+              }
+            },
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text"
+                },
+                "uri": {
+                  "scheme": {
+                    "secure": true,
+                    "name": "https",
+                    "version": "V11"
+                  }
+                },
+                "id": "6b6dfa17-7a5d-436b-9c5e-2cc1262b1118",
+                "name": "Request 1",
+                "headers": []
+              }
+            }
+          ]
+        },
+        {
+          "entity": {
+            "type": "Service",
+            "id": "1749418c-4922-429d-8e47-d3c28881b36d",
+            "name": "staffCustomerMessages"
+          },
+          "children": [
+            {
+              "entity": {
+                "type": "Request",
+                "method": {
+                  "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+                  "name": "GET"
+                },
+                "body": {
+                  "formBody": {
+                    "overrideContentType": true,
+                    "encoding": "application/x-www-form-urlencoded",
+                    "items": []
+                  },
+                  "bodyType": "Text",
+                  "textBody": "{\n  \"username\": \"HQOQROGRGDCFCYHWLNCG@domain.com\",\n  \"password\": \"Uz4>Qp9!St5]F1-Fu3%H\"\n}\n"
+                },
+                "uri": {
+                  "query": {
+                    "delimiter": "&",
+                    "items": []
+                  },
+                  "scheme": {
+                    "name": "http",
+                    "version": "V11"
+                  },
+                  "host": "localhost:5000",
+                  "path": "/api/staffcustomermessage"
+                },
+                "id": "04cbda60-afc6-4c16-9551-15ff36d8bd7b",
+                "name": "get_staffcustomermessage",
+                "headers": [
+                  {
+                    "enabled": true,
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQyLCJlbWFpbCI6IkhRT1FST0dSR0RDRkNZSFdMTkNHQGRvbWFpbi5jb20iLCJpYXQiOjE3MDYwMTAyMDYsImV4cCI6MTcwNjA5NjYwNn0.KwyIy6QXqUzRg77FLdgzdAo-taJXbe9qXXydS0ftm1OTzYtT08OMo6v2S7zhinOKmqOHcAhGte9lIPBijzcLMEccAkHiL-dNfZRTFbyEz8ZtIn484eVjk2qFHsByeadwpD2CSkQdZvy_liSYOyE7KMj49PrCP4ejzAGpDfNnWLWFKtIhhMgE_2dhPsMkS-Bq65KfAbOC93prBq559qX0jqbApGaBGXRGwTROPtcllgkmp1D8FAhhPrDtRub1gS4_lSEHybkdJZaKIa2R1VPxygZhKGDfVjqSu_2pUzPTrzvYV0FBx6R0gjg6MUFb6AeOk8DMp7r2HurdaYqBk1JRmE1vGGZyYH-T6-B3NGR0Nz0-Xzsbv1hLKYoCOhGyLUQaNTiteJk6o7anwJIIm_ncQCSlnT8lI0dRBv1y8K-bk2cieD8N2YxG_qLK9FOfzI4Ak9cliNu4sWFIndIBzX2ZWvFs5uw5wU1Zj489I-1_zHiHRgLvG9DiQVSV2QlJ_ajyvJAsZu0JzEU137KMdDqGXJE16FurKhfWbKwa3q2rAsbm5kQYRd1CVlgjaJ81EYAVGcKK66umc14r_GFKw8NYaocD--wV9RP7YnI2ZGhs62n__CVNFHZ2G0ClBwHD67bhLNuWcX9Q67ZgTUMmaVIJ4pt1RriuxMYKaraOfP22YdE"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

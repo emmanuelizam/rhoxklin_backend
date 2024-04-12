@@ -21,7 +21,13 @@ const { passport, generateToken } = require("./middlewares/security.js")(
 const app = express();
 
 const cors_options = {
-  origin: "http://localhost:3000",
+  origin: [
+    "http://rhoxklin.com",
+    "https://rhoxklin.com",
+    "http://www.rhoxklin.com",
+    "https://www.rhoxklin.com",
+    "http://localhost:3000",
+  ],
 };
 
 // setting up logger
@@ -166,7 +172,7 @@ app.use("/api/", TestimonialRoutes);
 app.use("/api/", ServiceOptionRoutes);
 app.use("/api/", ContactUsRoutes);
 
-app.use("/protected-api/", ProtectedStaffRoutes); //used to create the first staff
+//app.use("/protected-api/", ProtectedStaffRoutes); //used to create the first staff
 
 // protected routes that require jwt authentication
 app.use(passport.authenticate("jwt", { session: false }));

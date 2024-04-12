@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       unique: false,
       validate: { isFloat: true },
     },
+    picture: {
+      type: DataTypes.TEXT("medium"),
+    },
   });
 
   return Product;
